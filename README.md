@@ -1,1 +1,1 @@
-# arduino-misc
+# arduino-misc - A collection of personal programs

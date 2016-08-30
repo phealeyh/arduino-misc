@@ -5,9 +5,7 @@
 Input::Input(){
 }
 
-//This will keep accepting a char from the serial
-//read function and appending it to a string
-// until enter is hit
+//reads a specifc string until an enter is hit
 String Input::readString(){
   String input;
   char c;
@@ -18,7 +16,6 @@ String Input::readString(){
       input += c;
     }
   }
-  //remove the enter key appended to the end
   input.remove(input.length() - 1);
   return input;
 }

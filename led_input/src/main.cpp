@@ -9,7 +9,6 @@ type will be done via serial communication (keyboard) */
 
 /* Constants and variables */
 #define DIGITAL_PINS 13
-#define SIZE 13
 
 Pin *pinArray;
 
@@ -21,13 +20,13 @@ void initialisePins();
 void setup() {
   Serial.begin(9600);
   //initialise the array
-  pinArray = new Pin[SIZE];
+  pinArray = new Pin[DIGITAL_PINS];
   initialisePins();
 }
 
 void initialisePins(){
   //initialise the elements within the array
-  for(int i = 0; i < SIZE; i++){
+  for(int i = 0; i < DIGITAL_PINS; i++){
     //shift by one so that the lowest
     //element is 1 and set them to output by default
     Pin *pin = new Pin(i + 1, "OUTPUT");
@@ -51,7 +50,7 @@ void loop() {
 //to the pin given
 Pin &getPin(String pinNumber){
   int number = pinNumber.toInt();
-  for(int i = 0; i < SIZE; i++){
+  for(int i = 0; i < DIGITAL_PINS; i++){
     if(pinArray[i].getLed() == number) return pinArray[i];
   }
 }

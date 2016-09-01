@@ -19,7 +19,3 @@ String Input::readString(){
   input.remove(input.length() - 1);
   return input;
 }
-
-void Input::printString(String string){
-
-}

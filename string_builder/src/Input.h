@@ -10,7 +10,7 @@ class Input{
   public:
   Input();
   static String readString();
-  void printString(String string);
+  static int& readIntBetween(const int &min, const int &max);
 
   private:
 

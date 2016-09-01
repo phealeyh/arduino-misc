@@ -13,6 +13,7 @@ void setup() {
 }
 
 void loop() {
-  Serial.println("Please type anything you want displayed and press enter: ");
-  Serial.println(Input::readString());
+  char *string = "hello";
+  //int read = Input::readIntBetween(1,13);
+  Serial.println(string);
 } //end loop

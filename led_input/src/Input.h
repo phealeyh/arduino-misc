@@ -10,8 +10,6 @@ class Input{
   public:
   Input();
   static String readString();
-  void printString(String string);
-
   private:
 
 };

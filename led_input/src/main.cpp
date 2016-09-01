@@ -4,35 +4,57 @@
 #include "Input.h"
 #include "Pin.h"
 /* This program will allow you to input a led and select it.
-It will then ask you what mode you want the pin to be at. The input
+It will then ask you what mode you want the pin to be at(ON/OFF). The input
 type will be done via serial communication (keyboard) */
 
 /* Constants and variables */
-#define led 13
-Pin pin13(13,"OUTPUT");
-Pin pin12(12,"OUTPUT");
+#define DIGITAL_PINS 13
+#define SIZE 13
+
+Pin *pinArray;
 
 /*Functional prototypes */
 void promptVoltageSettings(Pin &pin);
+Pin &getPin(String pinNumber);
+void initialisePins();
 
 void setup() {
   Serial.begin(9600);
+  //initialise the array
+  pinArray = new Pin[SIZE];
+  initialisePins();
 }
 
+void initialisePins(){
+  //initialise the elements within the array
+  for(int i = 0; i < SIZE; i++){
+    //shift by one so that the lowest
+    //element is 1 and set them to output by default
+    Pin *pin = new Pin(i + 1, "OUTPUT");
+    pinArray[i] = *pin;
+    delete pin;
+  }
+}
+
+
 void loop() {
-  Serial.println("Please select a pin to configure on (13)/(12): ");
-  String selection = Input::readString();
-  Serial.println(selection + " has been selected.");
+  Serial.println("Please select a pin to configure on 1-13: ");
+  Pin pin = getPin(Input::readString());
+  Serial.print(pin.getLed());
+  Serial.println(" has been selected.");
+  promptVoltageSettings(pin);
+  Serial.print(pin.getLed());
+  Serial.println(" has been configured");
+}
 
-  if(selection.toInt() == 13){
-    promptVoltageSettings(pin13);
+//returns an actual pin from the array that is equal
+//to the pin given
+Pin &getPin(String pinNumber){
+  int number = pinNumber.toInt();
+  for(int i = 0; i < SIZE; i++){
+    if(pinArray[i].getLed() == number) return pinArray[i];
   }
-  else if(selection.toInt() == 12){
-    promptVoltageSettings(pin12);
-  }
-
-  Serial.println(selection + " has been configured");
-} //end loop
+}
 
 void promptVoltageSettings(Pin &pin){
   Serial.println("Will this pin be on or off? (ON/OFF) ");

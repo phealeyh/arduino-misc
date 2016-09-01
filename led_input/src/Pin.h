@@ -7,9 +7,11 @@
 class Pin{
 
   public:
+    Pin();
     Pin(const int &led, String ioMode);
     const String printSettings();
     void setVoltage(String voltage);
+    const int getLed();
 
 
   private:

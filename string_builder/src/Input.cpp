@@ -23,6 +23,21 @@ String Input::readString(){
   return input;
 }
 
-void Input::printString(String string){
-
+int& Input::readIntBetween(const int &min, const int &max){
+  char c;
+  int number;
+  while(true){
+    if(Serial.available() > 0){
+      Serial.print("Please enter a number between ");
+      Serial.print(min);
+      Serial.print(max);
+      c = Serial.read();
+      if(c >= min && c <= max && c == '\n'){
+        number = c;
+        break;
+      }
+    }
+  }
+  number;
+  return number;
 }

@@ -3,10 +3,13 @@
 
 #include "Pin.h"
 
+Pin::Pin(){
+
+}
+
 Pin::Pin(const int &led, String ioMode){
   _led = led;
   _ioMode = ioMode;
-  pinMode(_led,OUTPUT);
   //set pinMode here
   setPin();
 }
@@ -34,4 +37,8 @@ void Pin::setPin(){
   else if(_ioMode == "INPUT"){
     pinMode(_led,INPUT);
   }
+}
+
+const int Pin::getLed(){
+  return _led;
 }

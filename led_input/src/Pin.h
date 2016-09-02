@@ -13,7 +13,6 @@ class Pin{
     void setVoltage(String voltage);
     const int getLed();
 
-
   private:
     int _led;
     String _ioMode;

@@ -18,6 +18,11 @@ const String Pin::printSettings(){
   return _ioMode;
 }
 
+const int Pin::getLed(){
+  return _led;
+}
+
+
 void Pin::setVoltage(String voltage){
   voltage.toUpperCase();
   if(voltage.equals("OFF")){
@@ -37,8 +42,4 @@ void Pin::setPin(){
   else if(_ioMode == "INPUT"){
     pinMode(_led,INPUT);
   }
-}
-
-const int Pin::getLed(){
-  return _led;
 }

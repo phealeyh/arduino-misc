@@ -8,13 +8,13 @@ class Pin{
 
   public:
     Pin();
-    Pin(const int &led, String ioMode);
+    Pin(const int &pin, String ioMode);
     const String printSettings();
     void setVoltage(String voltage);
-    const int getLed();
+    const int getPin();
 
   private:
-    int _led;
+    int _pin;
     String _ioMode;
     void setPin();
 

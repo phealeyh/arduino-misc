@@ -26,7 +26,7 @@ void Pins::initialisePins(){
 Pin& Pins::getPin(String pinNumber){
   int pin = pinNumber.toInt();
   for(int i = 0; i <= _pin_amount; i++){
-    if(pinArray[i].getLed() == pin) return pinArray[i];
+    if(pinArray[i].getPin() == pin) return pinArray[i];
   }
 }
 

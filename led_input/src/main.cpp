@@ -11,15 +11,13 @@ type will be done via serial communication (keyboard) */
 /* Constants and variables */
 #define DIGITAL_PINS 13
 
-//declares a pointer to Pins that
-//contains an array to 13 pins
-//and sets them to output
+//pins will hold an array
+//of pins
 Pins *pins;
 
 
 void setup() {
   Serial.begin(9600);
-  //initialise the pins object
   pins = new Pins(DIGITAL_PINS);
 }
 

@@ -10,6 +10,8 @@ class Input{
   public:
   Input();
   static String readString();
+  static int readIntBetween(const int &min, const int &max);
+
   private:
 
 };

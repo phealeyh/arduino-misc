@@ -19,3 +19,24 @@ String Input::readString(){
   input.remove(input.length() - 1);
   return input;
 }
+
+//This input will keep looping until the user enters
+//a number between the given minimum and maximum argument variables
+int Input::readIntBetween(const int &min, const int &max){
+  String read;
+  char c;
+  while(true){
+    if(Serial.available() > 0){
+      c = Serial.read();
+      read += c;
+      if(c == '\n'){
+        if(read.toInt() >= min && read.toInt() <= max) break;
+        else{
+          Serial.println("Please enter a number between the range.");
+          read = "";
+        }
+      }
+    }
+  }
+  return read.toInt();
+}

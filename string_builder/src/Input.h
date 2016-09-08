@@ -13,7 +13,6 @@ class Input{
   static int readIntBetween(const int &min, const int &max);
 
   private:
-  static int getNumberFromChar(char *numbers);
 };
 
 

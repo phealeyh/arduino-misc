@@ -10,10 +10,10 @@ class Input{
   public:
   Input();
   static String readString();
-  static int& readIntBetween(const int &min, const int &max);
+  static int readIntBetween(const int &min, const int &max);
 
   private:
-
+  static int getNumberFromChar(char *numbers);
 };
 
 

@@ -2,9 +2,10 @@
 #include <Arduino.h>
 #include <String.h>
 #include "Input.h"
-/* This program will allow you to input a led and select it.
-It will then ask you what mode you want the pin to be at. The input
-type will be done via serial communication (keyboard) */
+/* This program will be testing the string builder
+ * class. It will be testing the static function
+ * for retrieving inputs between a certain number.
+ * */
 
 /* Constants and variables */
 
@@ -13,7 +14,6 @@ void setup() {
 }
 
 void loop() {
-  char *string = "hello";
-  //int read = Input::readIntBetween(1,13);
-  Serial.println(string);
+  Serial.println("Enter a number between 0-13");
+  Serial.println(Input::readIntBetween(0, 13));
 } //end loop

@@ -8,6 +8,11 @@ Input::Input(){
 //This will keep accepting a char from the serial
 //read function and appending it to a string
 // until enter is hit
+// Note: This function does exactly the same
+// thing as the readStringUntil function from
+// the standard arduino library. I am using this instead
+// because I dont want the if statement embedded within the
+// main program.
 String Input::readString(){
   String input;
   char c;
@@ -22,22 +27,23 @@ String Input::readString(){
   input.remove(input.length() - 1);
   return input;
 }
-
-int& Input::readIntBetween(const int &min, const int &max){
+//This input will keep looping until the user enters
+//a number between the given minimum and maximum argument variables
+int Input::readIntBetween(const int &min, const int &max){
+  String read;
   char c;
-  int number;
   while(true){
     if(Serial.available() > 0){
-      Serial.print("Please enter a number between ");
-      Serial.print(min);
-      Serial.print(max);
       c = Serial.read();
-      if(c >= min && c <= max && c == '\n'){
-        number = c;
-        break;
+      read += c;
+      if(c == '\n'){
+        if(read.toInt() >= min && read.toInt() <= max) break;
+        else{
+          Serial.println("Please enter a number between the range.");
+          read = "";
+        }
       }
     }
   }
-  number;
-  return number;
+  return read.toInt();
 }

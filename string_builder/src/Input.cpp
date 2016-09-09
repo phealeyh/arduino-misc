@@ -47,3 +47,25 @@ int Input::readIntBetween(const int &min, const int &max){
   }
   return read.toInt();
 }
+
+String Input::readStringUntilFound(String *words){
+  String word;
+  do{
+    Serial.println("Type in the proper words: ");
+    word = readString();
+    word.toUpperCase();
+  }while(!stringExists(word,words));
+  return word;
+}
+
+//private helper method that determines whether or not a string is found
+bool Input::stringExists(const String &target, String *words){
+  int count = 0;
+  while(words[count] != '\0'){
+    if(words[count] == target){
+      return true;
+    }
+    count++;
+  }
+  return false;
+}

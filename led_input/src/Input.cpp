@@ -40,3 +40,7 @@ int Input::readIntBetween(const int &min, const int &max){
   }
   return read.toInt();
 }
+
+String& Input::readStringUntilFound(String *word){
+
+}

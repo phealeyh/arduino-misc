@@ -11,7 +11,8 @@ class Input{
   Input();
   static String readString();
   static int readIntBetween(const int &min, const int &max);
-
+  const static String& readStringUntilFound(String *word);
+  
   private:
 
 };

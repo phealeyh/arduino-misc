@@ -14,7 +14,7 @@ type will be done via serial communication (keyboard) */
 //pins will hold an array
 //of pins
 Pins *pins;
-
+String words[] = {"ON","OFF"};
 
 void setup() {
   Serial.begin(9600);
@@ -25,13 +25,10 @@ void setup() {
 
 void loop() {
   Serial.println("Please select a pin to configure on 1-13: ");
-  //this will prompt and select a pin between 0 and 13, the readIntBetween will allow
-  //us to handle out-of-bounds exceptions by getting the maximum amount of pins within
-  //the class
   Pin pin = pins->getPin(Input::readIntBetween(0,pins->pinAmount()));
   Serial.println(pin.getPin());
   Serial.println("Will this pin be on or off? (ON/OFF) ");
-  pin.setVoltage(Input::readString());
+  pin.setVoltage(Input::readStringUntilFound(words));
   Serial.println("Voltage is set");
 
 }

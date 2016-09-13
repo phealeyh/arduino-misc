@@ -30,5 +30,4 @@ void loop() {
   Serial.println("Will this pin be on or off? (ON/OFF) ");
   pin.setVoltage(Input::readStringUntilFound(words));
   Serial.println("Voltage is set");
-
 }

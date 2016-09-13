@@ -45,7 +45,7 @@ int Input::readIntBetween(const int &min, const int &max){
 String Input::readStringUntilFound(String *words){
   String word;
   do{
-    Serial.println("Wrong word. Type in the proper word: ");
+    Serial.println("Type in the proper words: ");
     word = readString();
     word.toUpperCase();
   }while(!stringExists(word,words));

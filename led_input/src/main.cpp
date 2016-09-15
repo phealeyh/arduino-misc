@@ -10,6 +10,7 @@ type will be done via serial communication (keyboard) */
 
 /* Constants and variables */
 #define DIGITAL_PINS 13
+//test
 
 //pins will hold an array
 //of pins

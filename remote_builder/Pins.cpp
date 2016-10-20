@@ -28,8 +28,6 @@ Pin& Pins::getPin(int pinNumber){
 }
 
 
-
-
 //destroy pinArray
 void Pins::destoryPins(){
   delete pinArray;

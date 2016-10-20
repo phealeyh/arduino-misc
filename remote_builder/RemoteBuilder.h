@@ -9,18 +9,20 @@ class RemoteBuilder{
 
   public:
     RemoteBuilder();
-    RemoteBuilder(const int pinNumber, const int codeAmount);
+    RemoteBuilder(const int pinNumber);
     int getRecveiverPin();
     IRrecv* getIRreceiver();
     decode_results* getResults();
-    void recordRemoteSignal();
+    char* getCodes();
+    int getCorrespondingPin(unsigned long codeNumber);
 
   private:
     int recv_pin;
     IRrecv *irrecv;
     decode_results results;
-    char* remote_codes;
-    
+    char codes[21];
+    void initialiseCodes();
+
 };
 
 #endif

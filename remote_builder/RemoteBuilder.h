@@ -9,12 +9,18 @@ class RemoteBuilder{
 
   public:
     RemoteBuilder();
-  private:
-      int RECV_PIN;
-      //pointer to an IRrecv object
-      IRrecv *irrecv;
-      decode_results results;
+    RemoteBuilder(const int pinNumber, const int codeAmount);
+    int getRecveiverPin();
+    IRrecv* getIRreceiver();
+    decode_results* getResults();
+    void recordRemoteSignal();
 
+  private:
+    int recv_pin;
+    IRrecv *irrecv;
+    decode_results results;
+    char* remote_codes;
+    
 };
 
 #endif

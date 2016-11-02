@@ -53,6 +53,7 @@ int RemoteBuilder::getCorrespondingPin(unsigned long codeNumber){
     case 0xFF42BD: return 7;
     case 0xFF4AB5: return 8;
     case 0xFF52AD: return 9;
+    default: return 1000;
   }
 }
 

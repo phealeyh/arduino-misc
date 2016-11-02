@@ -6,6 +6,8 @@
 RemoteBuilder *remote;
 Pins *pins;
 
+bool numberIsPin(int number);
+
 void setup(){
   Serial.begin(9600);
   pins = new Pins(DIGITAL_PINS);
@@ -14,8 +16,17 @@ void setup(){
 }
 
 void loop() {
-  if(remote->getIRreceiver()->decode(remote->getResults())){
-    Serial.println(remote->getCorrespondingPin(remote->getResults()->value));
+  if(remote->getIRreceiver()->decode(remote->getResults())){ //get remote code
+    int number = remote->getCorrespondingPin(remote->getResults()->value);
+    if(numberIsPin(number)){
+      Pin pin = pins->getPin(number);
+      Serial.println(pin.getPin());
+    }
     remote->getIRreceiver()->resume();
+
   }
+}
+
+bool numberIsPin(int number){
+  return number <= DIGITAL_PINS && number >= 0;
 }

@@ -12,10 +12,12 @@ class Pin{
     const String printSettings();
     void setVoltage(String voltage);
     const int getPin();
+    void switchPin();
 
   private:
     int _pin;
     String _ioMode;
+    bool _pinState;
     void setPin();
 
 };

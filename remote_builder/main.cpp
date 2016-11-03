@@ -19,11 +19,9 @@ void loop() {
   if(remote->getIRreceiver()->decode(remote->getResults())){ //get remote code
     int number = remote->getCorrespondingPin(remote->getResults()->value);
     if(numberIsPin(number)){
-      Pin pin = pins->getPin(number);
-      Serial.println(pin.getPin());
+      pins->getPin(number).switchPin();
     }
     remote->getIRreceiver()->resume();
-
   }
 }
 

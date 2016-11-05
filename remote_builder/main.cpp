@@ -1,7 +1,7 @@
 #include "RemoteBuilder.h"
 #include "Pins.h"
 #define DIGITAL_PINS 13
-#define PIN_NUMBER 11
+#define PIN_NUMBER 6 //pin number for remote receiver
 
 RemoteBuilder *remote;
 Pins *pins;
@@ -9,7 +9,6 @@ Pins *pins;
 bool numberIsPin(int number);
 
 void setup(){
-  Serial.begin(9600);
   pins = new Pins(DIGITAL_PINS);
   remote = new RemoteBuilder(pins->getPin(PIN_NUMBER).getPin());
   remote->getIRreceiver()->enableIRIn();  // Start the receiver

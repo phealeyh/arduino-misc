@@ -2,7 +2,7 @@
 #include "RemoteBuilder.h"
 
 RemoteBuilder::RemoteBuilder(){
-  recv_pin = 11;
+  recv_pin = 11; //use receiver pin number of 11 by default
   irrecv = new IRrecv(recv_pin);
   initialiseCodes();
 }

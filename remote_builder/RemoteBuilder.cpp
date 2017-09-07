@@ -1,4 +1,3 @@
-
 #include "RemoteBuilder.h"
 
 RemoteBuilder::RemoteBuilder(){

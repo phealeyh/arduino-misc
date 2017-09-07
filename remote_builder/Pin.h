@@ -2,7 +2,7 @@
 #define PIN_h
 
 #include <Arduino.h>
-#include <String.h>
+#include <string.h>
 
 class Pin{
 

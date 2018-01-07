@@ -1,8 +1,8 @@
 /* Libraries */
 #include <Arduino.h>
-#include <String.h>
+#include <string.h>
 #include "Pins.h"
-#include "Input.h";
+#include "Input.h"
 
 /* This program will allow you to input a led and select it.
 It will then ask you what mode you want the pin to be at(ON/OFF). The input

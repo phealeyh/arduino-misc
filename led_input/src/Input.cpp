@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <String.h>
+#include <string.h>
 #include "Input.h"
 
 Input::Input(){
